@@ -10,6 +10,9 @@ Tests are executed in parallel across multiple browsers, and HTML reports are ge
 - `qwiik_tests/features/` – Feature files for Cucumber BDD scenarios.
 - `qwiik_tests/steps/` – Step definitions for UI and API scenarios.
 - `qwiik_tests/pages/` – Page Object Model (POM) classes for UI automation.
+- `qwiik_tests/data/` – Central object repository for UI elements.
+- `qwiik_tests/hooks/` – Cucumber hooks for setup, teardown, screenshots, and videos.
+- `qwiik_tests/models/` – Data models used in test automation.
 - `qwiik_tests/utils/` – Utility scripts (e.g., `cleanReports.js`).
 - `reports/` – Folder for JSON, screenshots, videos, and HTML reports.
 
@@ -88,10 +91,17 @@ npm run report
 
 ---
 
-## **Notes**
+## 👋 A Note to Reviewers
 
-1. **Reports are cleaned** automatically before each test run to avoid old results in the report.  
-2. **Parallel execution** is supported for multi-browser UI tests and API tests.  
-3. **Scenario duplicates** across browsers are handled in `generateReport.mjs` so that the HTML report is clean.
+Hi there! 👋
+
+Thank you for taking the time to check out my test project. This repository showcases my **Playwright Javascript with Cucumber framework and API Testing**, along with my approach to **clean code, parallel execution, and well-structured reports**.
+
+I hope this gives you a clear idea of how I work and how I approach automation challenges.
+
+If you like what you see here, I’d be thrilled to **join your team and contribute to your projects**. So… hire me! 😄
+
+Looking forward to connecting,  
+**Restiyanti**
 
 ---
