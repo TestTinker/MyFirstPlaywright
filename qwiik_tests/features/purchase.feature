@@ -8,7 +8,7 @@ This feature tests the complete purchase flow on the Swag Labs website,
     Given I enter username "<username>"
     And I enter password "<password>"
     And I click on "Login"
-    Then I should verify that the URL contains "/inventory.html" 
+    Then I should verify that the URL contains "/inventory.html"
     And I should see the page title "Products"
     And I should see Shopping Cart icon
     When I sort products by "Price (low to high)"
@@ -46,3 +46,23 @@ This feature tests the complete purchase flow on the Swag Labs website,
     Examples:
       | url                        | username      | password     |
       | https://www.saucedemo.com/ | standard_user | secret_sauce |
+
+  @negative
+  Scenario: Login with invalid user credentials
+    When I navigate to "<url>"
+    Given I login into app with username "<username>" and password "<password>"
+    Then I should see error message "Epic sadface: Username and password do not match any user in this service"
+
+    Examples:
+      | url                        | username      | password        |
+      | https://www.saucedemo.com/ | standard_user | invalidpassword |
+
+  @negative
+  Scenario: Login with locked out user
+    When I navigate to "<url>"
+    Given I login into app with username "<username>" and password "<password>"
+    Then I should see error message "Epic sadface: Sorry, this user has been locked out."
+
+    Examples:
+      | url                        | username        | password     |
+      | https://www.saucedemo.com/ | locked_out_user | secret_sauce |

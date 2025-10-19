@@ -12,6 +12,7 @@ export const loginSelectors = {
   usernameInput: '#user-name',
   passwordInput: '#password',
   loginBtn: '//input[@value="Login"]',
+  errorBtn: '[data-test="error"]',
 };
 
 export const inventorySelectors = {

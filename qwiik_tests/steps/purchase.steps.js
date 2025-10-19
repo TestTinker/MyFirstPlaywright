@@ -115,3 +115,15 @@ Then('I should see the text message {string}', async function (expectedMessage) 
 Then('I should see the button Back Home', async function () {
     await this.completePage.verifyBackHomeButtonVisible();
 });
+
+
+//
+// Negative scenario
+//
+Given('I login into app with username {string} and password {string}', async function (username, password) {
+  await this.loginPage.login(username, password);
+})
+
+Then('I should see error message {string}', async function(errorMessage) {
+  await this.loginPage.verifyErrorMessage(errorMessage);
+})

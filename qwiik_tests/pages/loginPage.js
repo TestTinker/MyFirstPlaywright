@@ -1,4 +1,5 @@
 import { BasePage } from './basePage.js';
+import { expect } from 'playwright/test';
 import { loginSelectors } from '../data/objectRepository.js';
 
 export class LoginPage extends BasePage {
@@ -20,5 +21,10 @@ export class LoginPage extends BasePage {
         await this.enterUsername(username);
         await this.enterPassword(password);
         await this.clickLogin();
+    }
+
+    async verifyErrorMessage(expectedMessage){
+        const actualMessage = await this.getText(loginSelectors.errorBtn);
+        await expect(actualMessage).toContain(expectedMessage);
     }
 }
