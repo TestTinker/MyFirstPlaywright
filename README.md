@@ -91,10 +91,17 @@ npm run report
 
 ---
 
-## **Notes**
+## 👋 A Note to Reviewers
 
-1. **Reports are cleaned** automatically before each test run to avoid old results in the report.  
-2. **Parallel execution** is supported for multi-browser UI tests and API tests.  
-3. **Scenario duplicates** across browsers are handled in `generateReport.mjs` so that the HTML report is clean.
+Hi there! 👋
+
+Thank you for taking the time to check out my test project. This repository showcases my **automation skills using Playwright, Cucumber.js, and Node.js**, along with my approach to **clean code, parallel execution, and well-structured reports**.
+
+I hope this gives you a clear idea of how I work and how I approach automation challenges.
+
+If you like what you see here, I’d be thrilled to **join your team and contribute to your projects**. So… hire me! 😄
+
+Looking forward to connecting,  
+**Restiyanti**
 
 ---
