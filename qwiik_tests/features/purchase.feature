@@ -47,7 +47,6 @@ This feature tests the complete purchase flow on the Swag Labs website,
       | url                        | username      | password     |
       | https://www.saucedemo.com/ | standard_user | secret_sauce |
 
-  @negative
   Scenario: Login with invalid user credentials
     When I navigate to "<url>"
     Given I login into app with username "<username>" and password "<password>"
@@ -57,7 +56,6 @@ This feature tests the complete purchase flow on the Swag Labs website,
       | url                        | username      | password        |
       | https://www.saucedemo.com/ | standard_user | invalidpassword |
 
-  @negative
   Scenario: Login with locked out user
     When I navigate to "<url>"
     Given I login into app with username "<username>" and password "<password>"

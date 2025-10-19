@@ -3,9 +3,14 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "bddgen": "npx bddgen",
-    "playwright-test": "npx playwright test --project chromium",
-    "test": "npx cucumber-js && node generateReport.cjs"
+    "clean:reports": "node qwiik_tests/utils/cleanReports.js",
+    "ui:chromium": "npm run clean:reports && npx cucumber-js --tags \"@ui\" --world-parameters \"{\\\"browser\\\":\\\"chromium\\\"}\" --parallel 3 --format json:reports/json/chromium.json",
+    "ui:firefox": "npm run clean:reports && npx cucumber-js --tags \"@ui\" --world-parameters \"{\\\"browser\\\":\\\"firefox\\\"}\" --parallel 3 --format json:reports/json/firefox.json",
+    "ui:webkit": "npm run clean:reports && npx cucumber-js --tags \"@ui\" --world-parameters \"{\\\"browser\\\":\\\"webkit\\\"}\" --parallel 3 --format json:reports/json/webkit.json",
+    "ui:all": "npm run clean:reports && npm-run-all --parallel ui:chromium ui:firefox ui:webkit && npm run report",
+    "api": "npm run clean:reports && npx cucumber-js --tags \"@api\" --parallel 3 --format json:reports/json/api.json",
+    "test:all": "npm run clean:reports && npm-run-all --parallel ui:chromium ui:firefox ui:webkit api && npm run report",
+    "report": "node generateReport.mjs"
   },
   "type": "module",
   "keywords": [],
@@ -17,6 +22,8 @@
     "@playwright/test": "^1.56.1",
     "@types/node": "^24.8.1",
     "multiple-cucumber-html-reporter": "^3.9.3",
+    "npm-run-all": "^4.1.5",
+    "open": "^10.2.0",
     "playwright-bdd": "^8.4.1"
   },
   "dependencies": {
