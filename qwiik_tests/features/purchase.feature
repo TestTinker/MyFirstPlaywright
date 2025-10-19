@@ -1,8 +1,8 @@
+@ui
 Feature: Purchase Products from Swag Labs
 This feature tests the complete purchase flow on the Swag Labs website,
   starting from login to checkout confirmation.
 
-  @smoke
   Scenario: Successfully purchase products with valid user credentials
     When I navigate to "<url>"
     Given I enter username "<username>"
