@@ -150,7 +150,7 @@ Before({ tags: '@ui', timeout: 60_000 }, async function ({ pickle }) {
 AfterStep({ tags: '@ui', timeout: 30_000 }, async function ({ pickle, result }) {
   if (!this.page) return;
 
-  const screenshot = await this.page.screenshot({ path: 'screenshot.png', encoding: 'base64' });
+  const screenshot = await this.page.screenshot({ encoding: 'base64' });
   const screenshotDir = path.join('reports', 'screenshots', this.parameters?.browser || 'chromium');
   if (!fs.existsSync(screenshotDir)) fs.mkdirSync(screenshotDir, { recursive: true });
   const screenshotName = `screenshot-${Date.now()}.png`;
