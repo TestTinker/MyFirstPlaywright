@@ -7,17 +7,17 @@ import { CartPage } from '../pages/cartPage.js';
 import { CheckoutPage } from '../pages/checkoutPage.js';
 import { OverviewPage } from '../pages/overviewPage.js';
 import { CompletePage } from '../pages/completePage.js';
-
 import path from 'path';
 import fs from 'fs';
 
 let browser, context, page;
 
-Before(async function () {
+/**
+ * ✅ Launch browser only for @ui scenarios
+ */
+Before({ tags: '@ui' }, async function () {
   browser = await chromium.launch({ headless: false });
-  context = await browser.newContext({
-    recordVideo: { dir: path.join('reports', 'videos') }
-  });
+  context = await browser.newContext({ recordVideo: { dir: path.join('reports', 'videos') } });
   page = await context.newPage();
 
   this.page = page;
@@ -30,31 +30,34 @@ Before(async function () {
   this.completePage = new CompletePage(page);
 });
 
-AfterStep(async function (step) {
-  // Capture screenshot after every step
+/**
+ * ✅ Capture screenshot after each step only for @ui
+ */
+AfterStep({ tags: '@ui' }, async function () {
   const screenshot = await this.page.screenshot();
   const screenshotName = `screenshot-${Date.now()}.png`;
   const screenshotPath = path.join('reports', screenshotName);
   fs.writeFileSync(screenshotPath, screenshot);
 
-  // Attach screenshot to Cucumber report
   if (this.attach) {
     await this.attach(screenshot, 'image/png');
   }
 });
 
-After(async function (scenario) {
+/**
+ * ✅ Close browser & attach video only for @ui
+ */
+After({ tags: '@ui' }, async function () {
   try {
-    // Close context/browser to save video
     if (context) await context.close();
     if (browser) await browser.close();
 
-    // Attach video to Cucumber report
-    const videoPath = await this.page.video()?.path();
-    if (videoPath && fs.existsSync(videoPath) && this.attach) {
-      const videoBuffer = fs.readFileSync(videoPath);
-      // Use 'video/webm' for HTML report inline playback
-      await this.attach(videoBuffer, 'video/webm');
+    if (this.page?.video) {
+      const videoPath = await this.page.video()?.path();
+      if (videoPath && fs.existsSync(videoPath) && this.attach) {
+        const videoBuffer = fs.readFileSync(videoPath);
+        await this.attach(videoBuffer, 'video/webm');
+      }
     }
   } catch (err) {
     console.warn('Error attaching video:', err.message);
