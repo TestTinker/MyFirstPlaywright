@@ -95,7 +95,7 @@ npm run report
 
 Hi there! 👋
 
-Thank you for taking the time to check out my test project. This repository showcases my **automation skills using Playwright, Cucumber.js, and Node.js**, along with my approach to **clean code, parallel execution, and well-structured reports**.
+Thank you for taking the time to check out my test project. This repository showcases my **Playwright Javascript with Cucumber framework and API Testing**, along with my approach to **clean code, parallel execution, and well-structured reports**.
 
 I hope this gives you a clear idea of how I work and how I approach automation challenges.
 
