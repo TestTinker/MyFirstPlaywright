@@ -10,6 +10,9 @@ Tests are executed in parallel across multiple browsers, and HTML reports are ge
 - `qwiik_tests/features/` – Feature files for Cucumber BDD scenarios.
 - `qwiik_tests/steps/` – Step definitions for UI and API scenarios.
 - `qwiik_tests/pages/` – Page Object Model (POM) classes for UI automation.
+- `qwiik_tests/data/` – Central object repository for UI elements.
+- `qwiik_tests/hooks/` – Cucumber hooks for setup, teardown, screenshots, and videos.
+- `qwiik_tests/models/` – Data models used in test automation.
 - `qwiik_tests/utils/` – Utility scripts (e.g., `cleanReports.js`).
 - `reports/` – Folder for JSON, screenshots, videos, and HTML reports.
 
