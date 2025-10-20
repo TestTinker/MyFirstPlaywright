@@ -99,7 +99,7 @@ Thank you for taking the time to check out my test project. This repository show
 
 I hope this gives you a clear idea of how I work and how I approach automation challenges.
 
-If you like what you see here, I’d be thrilled to **join your team and contribute to your projects**. So… hire me! 😄
+If my work aligns with what you’re looking for, I’d be genuinely excited for the opportunity to contribute to your team and future projects. 😊
 
 Looking forward to connecting,  
 **Restiyanti**
